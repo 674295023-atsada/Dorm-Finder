@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorm Finder - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            kanit: ['Kanit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { 
+      font-family: 'Kanit', sans-serif; 
+      background-color: #F8FAFC;
+    }
+    /* ซ่อน Scrollbar สำหรับ Mobile Horizontal Scroll */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800 antialiased flex flex-col justify-between">
+
+  <div class="bg-gradient-to-b from-[#0F6CBD] via-[#549DE6]/50 to-[#F8FAFC] pb-6 md:pb-12 pt-4 md:pt-6">
+    
+    <header class="hidden md:block max-w-7xl mx-auto px-6 mb-8">
+      <div class="flex items-center justify-between">
+        
+        <a href="home.html" class="flex items-center gap-3 group">
+          <img src="logo.png" alt="Dorm Finder Logo" class="h-12 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+          <span class="text-2xl font-bold tracking-wide text-white drop-shadow">Dorm Finder</span>
+        </a>
+
+        <nav class="flex items-center space-x-8">
+          <a href="home.html" class="flex items-center gap-2 text-white font-semibold text-base py-1 border-b-2 border-[#00BCD4]">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            หน้าหลัก
+          </a>
+          <a href="matching.html" class="flex items-center gap-2 text-white/90 hover:text-white font-medium text-base py-1 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            รูมเมท
+          </a>
+          <a href="detail.html?id=1" class="flex items-center gap-2 text-white/90 hover:text-white font-medium text-base py-1 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 10h3v11h14V10h3L12 2zm-3 4.5h6v3.5H9V6.5zm6 12.5H9v-4.5h6v4.5z"/></svg>
+            หอพัก
+          </a>
+          <a href="messages.html" class="flex items-center gap-2 text-white/90 hover:text-white font-medium text-base py-1 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.87 1.5 5.42 3.85 7.08L5 21l3.35-1.12C9.52 20.37 10.73 20.5 12 20.5c5.52 0 10-4.03 10-9.5S17.52 2 12 2zm-4 10c-.83 0-1.5-.67-1.5-1.5S7.17 9 8 9s1.5.67 1.5 1.5S8.83 12 8 12zm4 0c-.83 0-1.5-.67-1.5-1.5S11.17 9 12 9s1.5.67 1.5 1.5S12.83 12 12 12zm4 0c-.83 0-1.5-.67-1.5-1.5S15.17 9 16 9s1.5.67 1.5 1.5S16.83 12 16 12z"/></svg>
+            ข้อความ
+          </a>
+        </nav>
+
+        <a href="profile.html" class="flex items-center gap-2 px-5 py-2 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 text-white transition backdrop-blur-md shadow-sm">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-sm font-medium">บัญชีของฉัน</span>
+        </a>
+
+      </div>
+    </header>
+
+    <div class="flex md:hidden items-center justify-center gap-2 pb-3 px-4">
+      <img src="logo.png" alt="Dorm Finder Logo" class="h-9 w-auto object-contain">
+      <span class="text-xl font-bold tracking-wide text-white drop-shadow-sm">Dorm Finder</span>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4 space-y-3 md:space-y-4">
+      
+      <div class="relative w-full">
+        <input type="text" placeholder="ค้นหาหอพัก" class="w-full h-11 md:h-12 pl-6 pr-12 rounded-full bg-white text-base text-gray-800 placeholder-gray-400 border border-cyan-400 outline-none shadow-md focus:ring-2 focus:ring-[#00BCD4] transition">
+        <button class="absolute right-1 top-1 md:top-1 w-9 h-9 md:w-10 md:h-10 bg-[#00BCD4] hover:bg-[#00a2b8] active:scale-95 rounded-full flex items-center justify-center text-white shadow-sm transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-center gap-2 md:gap-4 max-w-xl mx-auto">
+        <button onclick="toggleFilter('price')" class="flex-1 max-w-[130px] md:max-w-[150px] py-1.5 md:py-2 bg-white border-2 border-[#00BCD4] text-black text-sm md:text-base font-semibold rounded-full shadow-sm text-center transition hover:bg-cyan-50 active:scale-95">
+          ราคา
+        </button>
+        <button onclick="toggleFilter('distance')" class="flex-1 max-w-[130px] md:max-w-[150px] py-1.5 md:py-2 bg-white border-2 border-[#00BCD4] text-black text-sm md:text-base font-semibold rounded-full shadow-sm text-center transition hover:bg-cyan-50 active:scale-95">
+          ระยะทาง
+        </button>
+        <button onclick="toggleFilter('type')" class="flex-1 max-w-[130px] md:max-w-[150px] py-1.5 md:py-2 bg-white border-2 border-[#00BCD4] text-black text-sm md:text-base font-semibold rounded-full shadow-sm text-center transition hover:bg-cyan-50 active:scale-95">
+          ประเภทห้อง
+        </button>
+      </div>
+
+      <div id="filter-drawer" class="hidden max-w-2xl mx-auto bg-white p-4 rounded-2xl border-2 border-[#00BCD4] shadow-lg text-xs md:text-sm text-black transition-all">
+        <div id="opt-price" class="hidden flex-wrap gap-2">
+          <span class="text-xs font-bold text-gray-500 w-full mb-1">เลือกช่วงราคา:</span>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">น้อยกว่า 4,000 บาท</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">4,000 - 6,000 บาท</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">6,000 - 8,000 บาท</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">มากกว่า 8,000 บาท</button>
+        </div>
+        <div id="opt-distance" class="hidden flex-wrap gap-2">
+          <span class="text-xs font-bold text-gray-500 w-full mb-1">เลือกระยะทาง:</span>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">น้อยกว่า 500 ม.</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">1 - 2 กม.</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">ใกล้ BTS/MRT</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">ใกล้ มหาวิทยาลัย</button>
+        </div>
+        <div id="opt-type" class="hidden flex-wrap gap-2">
+          <span class="text-xs font-bold text-gray-500 w-full mb-1">เลือกประเภทห้อง:</span>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">ห้องพัดลม</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">ห้องแอร์</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">Studio</button>
+          <button class="px-3.5 py-1.5 bg-cyan-50 border border-[#00BCD4] text-[#00838F] rounded-full font-medium hover:bg-[#00BCD4] hover:text-white transition">1 ห้องนอน</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <main class="w-full flex-grow max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-8 pb-24 md:pb-12">
+
+    <div class="mt-2 md:mt-4">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-black">หอพักแนะนำ</h2>
+        <a href="detail.html?id=1" class="text-sm font-semibold text-[#0F6CBD] hover:underline">ดูทั้งหมด →</a>
+      </div>
+      
+      <div class="flex md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto no-scrollbar pb-3 pt-1 -mx-4 px-4 md:mx-0 md:px-0">
+        
+        <a href="detail.html?id=1" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักแสนสุข</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">เลี้ยงแมวได้</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">ใกล้ BTS</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">6000 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="detail.html?id=2" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักสบายดี</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">ห้องกว้าง</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">มีที่จอดรถ</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">8000 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="detail.html?id=3" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักพรีเมียม สวีท</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">สระว่ายน้ำ</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">มีฟิตเนส</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">9500 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="detail.html?id=4" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักซิตี้ วิว</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">ติด ม.</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">กล้องวงจรปิด</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">5500 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="mt-8 md:mt-12">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-black">หอพักใกล้คุณ</h2>
+        <a href="detail.html?id=5" class="text-sm font-semibold text-[#0F6CBD] hover:underline">ดูทั้งหมด →</a>
+      </div>
+      
+      <div class="flex md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto no-scrollbar pb-3 pt-1 -mx-4 px-4 md:mx-0 md:px-0">
+        
+        <a href="detail.html?id=5" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักรุ่งอรุณ</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">เลี้ยงแมวได้</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">ใกล้ BTS</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">6500 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="detail.html?id=6" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักสุขใจ</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">ห้องกว้าง</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">มีที่จอดรถ</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">7500 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="detail.html?id=7" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักศิริสุข</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">ใกล้ร้านอาหาร</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">มีเครื่องซักผ้า</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">4800 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="detail.html?id=8" class="w-[230px] md:w-full flex-shrink-0 bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+          <div class="w-full h-40 md:h-48 bg-[#D8D8D8]"></div>
+          <div class="p-4 space-y-2.5">
+            <h3 class="font-bold text-base md:text-lg text-black truncate group-hover:text-[#0F6CBD] transition">หอพักเพชรไพลิน</h3>
+            <div class="flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">ระบบคีย์การ์ด</span>
+              <span class="px-2.5 py-0.5 border border-[#00BCD4] text-black text-[11px] md:text-xs rounded-full font-medium">มีแอร์</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs md:text-sm font-bold text-black">5800 บาท/เดือน</span>
+              <span class="bg-[#2ECC71] hover:bg-[#27ae60] text-white text-xs md:text-sm font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-xl transition">จองเลย</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </main>
+
+
+  <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 px-2 py-2 flex justify-around items-center z-50 shadow-lg">
+    <a href="home.html" class="flex flex-col items-center justify-center text-[#0F6CBD]">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span class="text-[11px] font-medium mt-0.5">หน้าหลัก</span>
+    </a>
+    <a href="matching.html" class="flex flex-col items-center justify-center text-black hover:text-[#0F6CBD] transition">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      <span class="text-[11px] font-medium mt-0.5">รูมเมท</span>
+    </a>
+    <a href="detail.html?id=1" class="flex flex-col items-center justify-center text-black hover:text-[#0F6CBD] transition">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 10h3v11h14V10h3L12 2zm-3 4.5h6v3.5H9V6.5zm6 12.5H9v-4.5h6v4.5z"/></svg>
+      <span class="text-[11px] font-medium mt-0.5">หอพัก</span>
+    </a>
+    <a href="messages.html" class="flex flex-col items-center justify-center text-black hover:text-[#0F6CBD] transition">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.87 1.5 5.42 3.85 7.08L5 21l3.35-1.12C9.52 20.37 10.73 20.5 12 20.5c5.52 0 10-4.03 10-9.5S17.52 2 12 2zm-4 10c-.83 0-1.5-.67-1.5-1.5S7.17 9 8 9s1.5.67 1.5 1.5S8.83 12 8 12zm4 0c-.83 0-1.5-.67-1.5-1.5S11.17 9 12 9s1.5.67 1.5 1.5S12.83 12 12 12zm4 0c-.83 0-1.5-.67-1.5-1.5S15.17 9 16 9s1.5.67 1.5 1.5S16.83 12 16 12z"/></svg>
+      <span class="text-[11px] font-medium mt-0.5">ข้อความ</span>
+    </a>
+    <a href="profile.html" class="flex flex-col items-center justify-center text-black hover:text-[#0F6CBD] transition">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      <span class="text-[11px] font-medium mt-0.5">ฉัน</span>
+    </a>
+  </div>
+
+
+  <footer class="hidden md:block bg-white border-t border-gray-200 py-6 text-center text-sm text-gray-500">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <span>© 2026 Dorm Finder. All rights reserved.</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-[#0F6CBD]">ข้อกำหนดการใช้งาน</a>
+        <a href="#" class="hover:text-[#0F6CBD]">นโยบายความเป็นส่วนตัว</a>
+        <a href="#" class="hover:text-[#0F6CBD]">ช่วยเหลือ</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    let activeFilter = null;
+
+    function toggleFilter(type) {
+      const drawer = document.getElementById('filter-drawer');
+      const optPrice = document.getElementById('opt-price');
+      const optDistance = document.getElementById('opt-distance');
+      const optType = document.getElementById('opt-type');
+
+      if (activeFilter === type) {
+        drawer.classList.add('hidden');
+        activeFilter = null;
+        return;
+      }
+
+      drawer.classList.remove('hidden');
+      optPrice.classList.add('hidden');
+      optPrice.classList.remove('flex');
+      optDistance.classList.add('hidden');
+      optDistance.classList.remove('flex');
+      optType.classList.add('hidden');
+      optType.classList.remove('flex');
+
+      if (type === 'price') {
+        optPrice.classList.remove('hidden');
+        optPrice.classList.add('flex');
+      } else if (type === 'distance') {
+        optDistance.classList.remove('hidden');
+        optDistance.classList.add('flex');
+      } else if (type === 'type') {
+        optType.classList.remove('hidden');
+        optType.classList.add('flex');
+      }
+
+      activeFilter = type;
+    }
+  </script>
+
+</body>
+</html>
