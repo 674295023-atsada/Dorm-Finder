@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorm Finder - โปรไฟล์</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            kanit: ['Kanit', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0F6CBD',
+            secondary: '#00BCD4',
+            grayPlaceholder: '#D8D8D8',
+            cardGray: '#E5E5E5',
+            linkBlue: '#0075FF'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #F8FAFC;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800 antialiased pb-24 md:pb-10 bg-slate-50 flex flex-col justify-between">
+
+  <!-- ================= DESKTOP HEADER ================= -->
+  <header class="hidden md:block bg-primary text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="home.html" class="flex items-center gap-2 text-xl font-bold tracking-wide hover:opacity-90 transition">
+        <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Dorm Finder</span>
+      </a>
+
+      <nav class="flex items-center gap-8 text-sm font-medium">
+        <a href="home.html" class="text-white/80 hover:text-white transition py-1">หน้าหลัก</a>
+        <a href="matching.html" class="text-white/80 hover:text-white transition py-1">ค้นหารูมเมท</a>
+        <a href="detail.html?id=1" class="text-white/80 hover:text-white transition py-1">หอพัก</a>
+        <a href="messages.html" class="text-white/80 hover:text-white transition py-1">ข้อความ</a>
+        <a href="dashboard.html" class="text-white/80 hover:text-white transition py-1 flex items-center gap-1">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+          <span>แดชบอร์ด</span>
+        </a>
+        <a href="profile.html" class="text-white font-bold transition py-1 border-b-2 border-white">โปรไฟล์ของฉัน</a>
+      </nav>
+
+      <form action="search.html" method="GET" class="relative w-64">
+        <input type="text" name="q" placeholder="ค้นหา..." class="w-full pl-9 pr-4 py-1.5 bg-white/10 text-white placeholder-white/60 rounded-full text-xs border border-white/20 focus:outline-none focus:bg-white focus:text-gray-800 transition">
+        <button type="submit" aria-label="ค้นหา" class="absolute left-3 top-2.5 text-white/70 hover:text-white">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE HEADER ================= -->
+  <header class="md:hidden bg-primary text-white px-4 py-3.5 flex items-center justify-between sticky top-0 z-40 shadow-sm">
+    <div class="flex items-center gap-3">
+      <a href="home.html" class="p-1 hover:bg-white/10 rounded-full transition" aria-label="ย้อนกลับ">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </a>
+      <h1 class="text-lg font-bold tracking-wide">โปรไฟล์</h1>
+    </div>
+    <a href="dashboard.html" class="p-1 hover:bg-white/10 rounded-lg transition flex items-center gap-1 text-xs bg-white/10 px-2 py-1">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <span>แดชบอร์ด</span>
+    </a>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main class="max-w-md w-full mx-auto px-4 py-4 md:py-8 flex-1">
+
+    <div class="space-y-4">
+
+      <!-- Profile Header -->
+      <div class="flex flex-col items-center pt-2 pb-1">
+        <!-- Avatar Placeholder -->
+        <a href="edit-profile.html" class="relative group" title="เปลี่ยนรูปโปรไฟล์">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 bg-grayPlaceholder rounded-full shadow-inner border-2 border-white flex items-center justify-center overflow-hidden">
+            <svg class="w-16 h-16 sm:w-20 sm:h-20 text-gray-400 mt-3" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <div class="absolute bottom-0 right-0 bg-primary text-white p-1.5 rounded-full shadow-md hover:bg-primary/90 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Name & Edit Link -->
+        <div class="flex items-center gap-2 mt-3">
+          <h2 class="text-xl font-bold text-gray-900">คุณ</h2>
+          <a href="edit-profile.html" aria-label="แก้ไขโปรไฟล์" class="text-gray-600 hover:text-primary transition p-1">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Status & Email -->
+        <p class="text-sm font-semibold text-gray-800 mt-1">สถานะ: กำลังหาห้อง</p>
+        <p class="text-xs text-gray-600 mt-0.5">khun@gmail.com</p>
+      </div>
+
+      <!-- Card 1: ข้อมูลทั่วไป -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-xs space-y-2 relative">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="font-bold text-gray-900 text-base md:text-lg">ข้อมูลทั่วไป</h3>
+          <a href="edit-profile.html" class="text-xs text-linkBlue hover:underline font-semibold">แก้ไข</a>
+        </div>
+        
+        <div class="space-y-1.5 text-xs sm:text-sm text-gray-800 font-medium">
+          <p><span class="text-gray-900">มหาวิทยาลัย : </span><span class="font-normal text-gray-700">ราชภัฏสงขลา (SKRU)</span></p>
+          <p><span class="text-gray-900">คณะ : </span><span class="font-normal text-gray-700">วิทยาศาสตร์และเทคโนโลยี</span></p>
+          <p><span class="text-gray-900">ชั้นปี : </span><span class="font-normal text-gray-700">3</span></p>
+          <p><span class="text-gray-900">งบประมาณ : </span><span class="font-normal text-gray-700">6000 - 8000 บาท/เดือน</span></p>
+        </div>
+      </div>
+
+      <!-- Card 2: ไลฟ์สไตล์ -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-xs space-y-3">
+        <div class="flex items-center justify-between mb-1">
+          <h3 class="font-bold text-gray-900 text-base md:text-lg">ไลฟ์สไตล์</h3>
+          <a href="edit-lifestyle.html" class="text-xs text-linkBlue hover:underline font-semibold">แก้ไข</a>
+        </div>
+        
+        <div class="grid grid-cols-3 gap-2">
+          <span class="bg-[#B2EBF2] text-gray-900 text-[11px] sm:text-xs font-semibold py-1.5 px-2 rounded-full text-center truncate">
+            รักความสะอาด
+          </span>
+          <span class="bg-[#B2EBF2] text-gray-900 text-[11px] sm:text-xs font-semibold py-1.5 px-2 rounded-full text-center truncate">
+            นอนดึก
+          </span>
+          <span class="bg-[#B2EBF2] text-gray-900 text-[11px] sm:text-xs font-semibold py-1.5 px-2 rounded-full text-center truncate">
+            ใช้คอมพิวเตอร์
+          </span>
+          <span class="bg-[#B2EBF2] text-gray-900 text-[11px] sm:text-xs font-semibold py-1.5 px-2 rounded-full text-center truncate">
+            ชอบสัตว์เลี้ยง
+          </span>
+          <span class="bg-[#B2EBF2] text-gray-900 text-[11px] sm:text-xs font-semibold py-1.5 px-2 rounded-full text-center truncate">
+            มีระเบียบ
+          </span>
+          <span class="bg-[#B2EBF2] text-gray-900 text-[11px] sm:text-xs font-semibold py-1.5 px-2 rounded-full text-center truncate">
+            ไม่สูบบุหรี่
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 3: การจับคู่รูมเมท (AI แนะนำ) -->
+      <a href="matching.html" class="block bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-xs space-y-3 hover:border-primary/50 hover:shadow-md transition">
+        <h3 class="font-bold text-gray-900 text-base md:text-lg">การจับคู่รูมเมท (AI แนะนำ)</h3>
+
+        <div class="flex items-center justify-between pt-1">
+          <!-- Roommate Info -->
+          <div class="flex items-center gap-3">
+            <div class="w-14 h-14 bg-grayPlaceholder rounded-full shrink-0"></div>
+            <span class="font-bold text-gray-900 text-xs sm:text-sm">
+              จับคู่กับ : ต้น (95% Match)
+            </span>
+          </div>
+
+          <!-- Circular Percentage Badge (95%) -->
+          <div class="relative w-16 h-16 flex items-center justify-center shrink-0">
+            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+              <path class="text-cyan-100" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="text-secondary" stroke-dasharray="95, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span class="absolute font-black text-primary text-sm sm:text-base">95%</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Section 4: การตั้งค่า & หอพัก -->
+      <div class="pt-2 space-y-3">
+        <div class="flex items-center gap-2">
+          <svg class="w-7 h-7 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+          </svg>
+          <h2 class="font-bold text-gray-900 text-lg sm:text-xl">การตั้งค่า & หอพัก</h2>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Item 1: รายการโปรด -->
+          <a href="favorites.html" class="w-full bg-white p-4 rounded-2xl border border-gray-200/80 shadow-xs flex items-center justify-between hover:bg-gray-50 active:bg-gray-100 transition">
+            <span class="font-bold text-gray-900 text-base">รายการโปรด</span>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+
+          <!-- Item 2: ประวัติการดู -->
+          <a href="history.html" class="w-full bg-white p-4 rounded-2xl border border-gray-200/80 shadow-xs flex items-center justify-between hover:bg-gray-50 active:bg-gray-100 transition">
+            <span class="font-bold text-gray-900 text-base">ประวัติการดู</span>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+
+          <!-- Item 3: ตั้งค่าการแจ้งเตือน -->
+          <a href="settings-notification.html" class="w-full bg-white p-4 rounded-2xl border border-gray-200/80 shadow-xs flex items-center justify-between hover:bg-gray-50 active:bg-gray-100 transition">
+            <span class="font-bold text-gray-900 text-base">ตั้งค่าการแจ้งเตือน</span>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+
+          <!-- Item 4: ตั้งค่าทั่วไป -->
+          <a href="settings-general.html" class="w-full bg-white p-4 rounded-2xl border border-gray-200/80 shadow-xs flex items-center justify-between hover:bg-gray-50 active:bg-gray-100 transition">
+            <span class="font-bold text-gray-900 text-base">ตั้งค่าทั่วไป</span>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ปุ่มเข้าสู่แดชบอร์ด & ปุ่มออกจากระบบ -->
+      <div class="pt-4 space-y-2.5">
+        <!-- ปุ่มเข้าสู่แดชบอร์ด -->
+        <a href="dashboard.html" class="w-full py-3 px-4 bg-primary hover:bg-primary/90 active:bg-primary/95 text-white font-bold rounded-xl shadow-xs transition flex items-center justify-center gap-2 text-sm sm:text-base">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+          </svg>
+          <span>เข้าสู่แดชบอร์ด</span>
+        </a>
+
+        <!-- ปุ่มออกจากระบบ -->
+        <a href="login.html" class="block w-full py-3 bg-red-50 hover:bg-red-100 text-red-600 text-center font-bold rounded-xl border border-red-200/80 transition text-sm sm:text-base">
+          ออกจากระบบ
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-2 py-1.5 flex justify-around items-center z-50 shadow-lg">
+    
+    <a href="home.html" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">หน้าหลัก</span>
+    </a>
+
+    <a href="matching.html" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">รูมเมท</span>
+    </a>
+
+    <a href="detail.html?id=1" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2L2 10h3v11h14V10h3L12 2zm-3 4.5h6v3.5H9V6.5zm6 12.5H9v-4.5h6v4.5z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">หอพัก</span>
+    </a>
+
+    <a href="messages.html" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.03 2 11c0 2.87 1.5 5.42 3.85 7.08L5 21l3.35-1.12C9.52 20.37 10.73 20.5 12 20.5c5.52 0 10-4.03 10-9.5S17.52 2 12 2zm-4 10c-.83 0-1.5-.67-1.5-1.5S7.17 9 8 9s1.5.67 1.5 1.5S8.83 12 8 12zm4 0c-.83 0-1.5-.67-1.5-1.5S11.17 9 12 9s1.5.67 1.5 1.5S12.83 12 12 12zm4 0c-.83 0-1.5-.67-1.5-1.5S15.17 9 16 9s1.5.67 1.5 1.5S16.83 12 16 12z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">ข้อความ</span>
+    </a>
+
+    <!-- Active Tab: ฉัน (Profile) -->
+    <a href="profile.html" class="flex flex-col items-center justify-center text-primary">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">ฉัน</span>
+    </a>
+
+  </div>
+
+</body>
+</html>

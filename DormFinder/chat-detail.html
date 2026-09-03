@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorm Finder - ห้องแชท คุณวิ (เจ้าของหอพักแสนสุข)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            kanit: ['Kanit', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0F6CBD',
+            secondary: '#00BCD4',
+            grayPlaceholder: '#D8D8D8',
+            cardGray: '#EFEFEF'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #F8FAFC;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800 antialiased pb-16 md:pb-6 bg-slate-50 flex flex-col justify-between">
+
+  <!-- ================= DESKTOP HEADER ================= -->
+  <header class="hidden md:block bg-primary text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="home.html" class="flex items-center gap-2 text-xl font-bold tracking-wide hover:opacity-90 transition">
+        <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Dorm Finder</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="flex items-center gap-8 text-sm font-medium">
+        <a href="home.html" class="text-white/80 hover:text-white transition py-1">หน้าหลัก</a>
+        <a href="matching.html" class="text-white/80 hover:text-white transition py-1">ค้นหารูมเมท</a>
+        <a href="detail.html?id=1" class="text-white/80 hover:text-white transition py-1">หอพัก</a>
+        <a href="messages.html" class="text-white font-semibold border-b-2 border-secondary py-1">ข้อความ</a>
+        <a href="profile.html" class="text-white/80 hover:text-white transition py-1">โปรไฟล์ของฉัน</a>
+      </nav>
+
+      <!-- Desktop Search Bar -->
+      <div class="relative w-64">
+        <input type="text" placeholder="ค้นหาข้อความ..." class="w-full pl-9 pr-4 py-1.5 bg-white/10 text-white placeholder-white/60 rounded-full text-xs border border-white/20 focus:outline-none focus:bg-white focus:text-gray-800 focus:placeholder-gray-400 transition">
+        <svg class="w-4 h-4 text-white/70 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE HEADER ================= -->
+  <header class="md:hidden bg-primary text-white px-4 py-3.5 flex items-center justify-between sticky top-0 z-40 shadow-sm">
+    <div class="flex items-center gap-3">
+      <a href="messages.html" class="p-1 hover:bg-white/10 rounded-full transition">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </a>
+      <h1 class="text-lg font-bold tracking-wide">คุณวิ (เจ้าของหอพักแสนสุข)</h1>
+    </div>
+    <div class="w-6"></div>
+  </header>
+
+
+  <!-- ================= MAIN CHAT CONTAINER ================= -->
+  <main class="max-w-4xl w-full mx-auto px-0 md:px-6 py-0 md:py-6 flex-1 flex flex-col justify-between">
+
+    <div class="bg-white md:rounded-2xl md:border border-gray-200/80 md:shadow-sm flex-1 flex flex-col overflow-hidden h-[calc(100vh-120px)] md:h-[calc(100vh-140px)]">
+      
+      <!-- DESKTOP CHAT PARTNER HEADER BAR -->
+      <div class="hidden md:flex items-center justify-between px-6 py-3.5 bg-slate-50 border-b border-gray-200 shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 bg-grayPlaceholder rounded-full shrink-0"></div>
+          <div>
+            <h2 class="font-bold text-gray-900 text-base">คุณวิ (เจ้าของหอพักแสนสุข)</h2>
+            <p class="text-xs text-gray-500">ตอบกลับอย่างรวดเร็ว • ออนไลน์</p>
+          </div>
+        </div>
+        <a href="detail.html?id=1" class="px-3.5 py-1.5 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 text-xs font-medium rounded-xl transition flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          ดูรายละเอียดหอพัก
+        </a>
+      </div>
+
+      <!-- MESSAGES AREA -->
+      <div class="flex-1 p-4 md:p-6 overflow-y-auto space-y-4 bg-white">
+
+        <!-- 1. Right Message (User) -->
+        <div class="flex flex-col items-end ml-auto max-w-[80%] md:max-w-[65%]">
+          <div class="bg-primary text-white px-4 py-2.5 rounded-2xl text-xs md:text-sm font-normal shadow-2xs leading-relaxed">
+            สวัสดีครับ นัดดูห้องพรุ่งนี้<br>กี่โมงดีครับ
+          </div>
+        </div>
+
+        <!-- 2. Left Message (Partner) -->
+        <div class="flex items-start gap-3 max-w-[80%] md:max-w-[65%]">
+          <div class="w-10 h-10 bg-grayPlaceholder rounded-full shrink-0"></div>
+          <div class="bg-cardGray text-gray-900 px-4 py-2.5 rounded-2xl text-xs md:text-sm font-normal shadow-2xs leading-relaxed">
+            บ่ายโมงสะดวกไหมคะ
+          </div>
+        </div>
+
+        <!-- 3. Right Message (User) -->
+        <div class="flex flex-col items-end ml-auto max-w-[80%] md:max-w-[65%]">
+          <div class="bg-primary text-white px-4 py-2 rounded-2xl text-xs md:text-sm font-normal shadow-2xs">
+            ได้ครับ
+          </div>
+        </div>
+
+        <!-- Time Stamp Divider (14:00 น.) -->
+        <div class="flex items-center justify-center my-4">
+          <span class="text-xs text-gray-400 font-normal">14 : 00 น.</span>
+        </div>
+
+        <!-- 4. Right Message (User) -->
+        <div class="flex flex-col items-end ml-auto max-w-[80%] md:max-w-[65%]">
+          <div class="bg-primary text-white px-4 py-2.5 rounded-2xl text-xs md:text-sm font-normal shadow-2xs leading-relaxed">
+            ห้องดีมากครับ ผมว่า<br>จะเช่าที่นี่ครับ
+          </div>
+        </div>
+
+        <!-- 5. Left Message (Partner) -->
+        <div class="flex items-start gap-3 max-w-[80%] md:max-w-[65%]">
+          <div class="w-10 h-10 bg-grayPlaceholder rounded-full shrink-0"></div>
+          <div class="bg-cardGray text-gray-900 px-4 py-2.5 rounded-2xl text-xs md:text-sm font-normal shadow-2xs leading-relaxed">
+            ต้องการทำสัญญาเลย<br>ไหมคะ
+          </div>
+        </div>
+
+        <!-- 6. Right Message (User) -->
+        <div class="flex flex-col items-end ml-auto max-w-[80%] md:max-w-[65%]">
+          <div class="bg-primary text-white px-4 py-2 rounded-2xl text-xs md:text-sm font-normal shadow-2xs">
+            ทำเลยก็ได้ครับ
+          </div>
+        </div>
+
+        <!-- 7. Left Contract Attachment Card -->
+        <div class="flex items-start gap-3 max-w-[80%] md:max-w-[65%] pt-1">
+          <div class="w-10 h-10 bg-grayPlaceholder rounded-full shrink-0"></div>
+          <a href="sign-contract.html" class="bg-cardGray hover:bg-gray-200 transition p-4 rounded-2xl border border-gray-300/80 shadow-2xs flex flex-col items-center justify-center w-36 sm:w-40 space-y-2 group">
+            <svg class="w-12 h-12 text-black group-hover:scale-105 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+              <path d="M17.85 13.4l1.75 1.75-5.3 5.3H12.5v-1.8l5.35-5.25z" fill="#000"/>
+            </svg>
+            <span class="font-bold text-xs sm:text-sm text-black tracking-wide">ทำสัญญาเช่า</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- CHAT TOOLBAR / INPUT BAR -->
+      <div class="px-3 py-2.5 bg-white border-t border-gray-200 shrink-0">
+        <form onsubmit="return false;" class="flex items-center gap-2.5 sm:gap-3">
+          
+          <!-- 1. Camera Icon -->
+          <button type="button" class="text-black hover:text-primary transition shrink-0 p-1">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm9-9h-3.17L16 4H8L6.17 6H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-9 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+            </svg>
+          </button>
+
+          <!-- 2. Microphone Icon -->
+          <button type="button" class="text-black hover:text-primary transition shrink-0 p-1">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
+            </svg>
+          </button>
+
+          <!-- 3. Contract Icon -->
+          <button type="button" class="text-black hover:text-primary transition shrink-0 p-1" title="ส่งคำขอทำสัญญาเช่า">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
+          </button>
+
+          <!-- 4. Text Input Field -->
+          <input type="text" placeholder="พิมพ์ข้อความ..." class="flex-1 bg-cardGray text-xs sm:text-sm py-2 px-4 rounded-full focus:outline-none focus:ring-1 focus:ring-primary text-gray-800 placeholder-gray-500">
+
+          <!-- 5. Send Icon (จรวดส่งข้อความ - ชี้ไปขวาบนด้วย -rotate-45) -->
+          <button type="submit" class="text-black hover:text-primary transition shrink-0 p-1">
+            <svg class="w-6 h-6 -rotate-45" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-2 py-1.5 flex justify-around items-center z-50 shadow-lg">
+    
+    <a href="home.html" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">หน้าหลัก</span>
+    </a>
+
+    <a href="matching.html" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">รูมเมท</span>
+    </a>
+
+    <a href="detail.html?id=1" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2L2 10h3v11h14V10h3L12 2zm-3 4.5h6v3.5H9V6.5zm6 12.5H9v-4.5h6v4.5z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">หอพัก</span>
+    </a>
+
+    <!-- ไอคอนข้อความ (ใช้อันเดียวกับหน้า messages.html) -->
+    <a href="messages.html" class="flex flex-col items-center justify-center text-primary">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.03 2 11c0 2.87 1.5 5.42 3.85 7.08L5 21l3.35-1.12C9.52 20.37 10.73 20.5 12 20.5c5.52 0 10-4.03 10-9.5S17.52 2 12 2zm-4 10c-.83 0-1.5-.67-1.5-1.5S7.17 9 8 9s1.5.67 1.5 1.5S8.83 12 8 12zm4 0c-.83 0-1.5-.67-1.5-1.5S11.17 9 12 9s1.5.67 1.5 1.5S12.83 12 12 12zm4 0c-.83 0-1.5-.67-1.5-1.5S15.17 9 16 9s1.5.67 1.5 1.5S16.83 12 16 12z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">ข้อความ</span>
+    </a>
+
+    <a href="profile.html" class="flex flex-col items-center justify-center text-black hover:text-primary transition">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      <span class="text-[10px] font-medium mt-0.5">ฉัน</span>
+    </a>
+
+  </div>
+
+</body>
+</html>
